@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  friendA: MyString
+  friendB: MyString
+  status: 1
+  accepted: false
+
+two:
+  friendA: MyString
+  friendB: MyString
+  status: 1
+  accepted: false

@@ -11,3 +11,12 @@
  *= require_self
  *= require_tree .
  */
+
+
+ .help{
+ 	position: fixed;
+ 	bottom: 0;
+ 	font-size: 12px;
+ }
+
+

@@ -2,13 +2,44 @@
 <html>
 <head>
   <title>Blog</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <%= yield %>
+
+<div id="user_header">
+ <% if current_user %>
+	<span class="topbar logged"> Logged in as <%= current_user.email %></span>
+	
+	
+	<%= button_to "new post", new_article_path, :class => "topbar btn btn-primary btn-sm", :method => :get  %>
+
+	<%= button_to "view post", articles_path, :class => "topbar btn btn-primary btn-sm", :method => :get  %>
+	
+ 	<%= button_to "Make friendship", new_friendship_path, :class => "topbar btn btn-primary btn-sm", :method => :get  %>
+ 	
+ 	<%= button_to "Edit Profile", edit_user_path(current_user), :class => "toprightSec btn btn-primary btn-xs", :method => :get  %>
+ 	<%= button_to "Log Out", logout_path, :class => "topright btn btn-primary btn-xs", :method => :get  %>
+
+ 	
+ <% else %>
+ 	<div class="logout_group">
+ 		<%= link_to "Sign Up", signup_path, :class => "toplink" %> 
+ 		<spam class="smttext">or</span>
+ 		<%= link_to "Log In", login_path , :class => "toplink"%>
+ 	</div>
+ <% end %>
+</div>
+
+<% flash.each do |key, value| %>
+ 	<%= content_tag(:div, class: "alert alert-#{key}") do %>
+		<p><%= value %></p>
+	<% end %>
+<% end %>
+
 
 </body>
 </html>

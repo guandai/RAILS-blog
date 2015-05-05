@@ -1,0 +1,41 @@
+<%#=user.id.to_s  + " " + params.to_s + " " + session.to_s %>
+<div id="user_<%=user.id%>" class="user">
+
+<%
+  changeText(session, user, @relations )
+%>
+
+<%#= curFriendship[:status] %>
+  <div class="user-info">
+    <h3><%= user.name %></h3>
+    <span class="fl friendName" ><%= user.first_name + " " + user.last_name  %> </span>
+    <%if params[:controller]=="friendships" %>
+      <div class="fl makeFriendship space" >
+      <%= button_to @makebtn, make_friendship_path(user.id) , 
+            :class => "btn btn-warning btn-xs ", 
+            :disabled => @makedis,
+            :method => :get  %></div>    
+      <div class="fl blockThisPeople space" >
+      <%= button_to @delbtn, delete_friendship_path(user.id) , 
+            :class => "btn btn-info btn-xs",
+            :disabled => @deldis,
+            :method => :get  %></div>    
+       <div class="fl blockThisPeople space" >
+      <%= button_to @blkbtn, block_friendship_path(user.id) , 
+            :class => "btn btn-danger btn-xs",
+            :disabled => @blkdis,
+            :method => :get  %></div>    
+    
+  <%else%>
+   <span class="edituser space" >
+   <%= button_to "Edit", edit_user_path(user.id) , 
+            :class => "btn btn-primary btn-xs", 
+            :method => :get  %></span>    
+   <span class="deleteuser space" >
+
+   <%= button_to "Delete", delete_user_path(user.id) ,
+            :class => "btn btn-danger btn-xs",
+            :method => :get  %></span>    
+  <%end%>    
+</div>
+<br>

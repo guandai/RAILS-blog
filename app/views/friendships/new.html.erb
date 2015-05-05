@@ -1,0 +1,14 @@
+<br>
+<br>
+<h1>Find People To Make Friendship</h1>
+<%#= render 'form' %>
+ <%# params[:listFriendShip] = true %>
+ <% params[:current_user] = session[:user_id] %>
+ <%= render @users %>
+<br>
+<br>
+<%= button_to 'Back', articles_path, :class => "btn btn-primary btn-xs", :method => :get  %>
+
+<script type="text/javascript">
+	updateFriendshipText()
+</script>

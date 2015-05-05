@@ -1,0 +1,23 @@
+<br>
+<br>
+<h1  class="header" >List All Article</h1>
+
+<div class="fieldset">
+  <div class="legend">Posts overview</div>
+  <div class="legend-content">
+  <%= button_to "Write a new post", new_article_path, :class => "topbar btn btn-primary btn-xs", :method => :get  %>
+    
+    <div> Total post: <%= @articles.length.to_s %> </div>
+    
+    <% if !@articles %>
+       <%= render :partial => 'getting_started' %>
+    <% else %>
+    <div id="campaigns">
+      <%= render @articles %>
+      <%= will_paginate @articles %>      
+    </div>
+    <% end %>
+
+    
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div id="article_<%=article.id%>" class="article">
+	<div class="article-info">
+		<br>
+		<h3><%=  article.title %></h3>
+		<% @author = User.find(article.user_id) %>
+		<span class="fl" ><%=  " Author: " + @author.first_name + " " + @author.last_name  %> </span>
+		<span class="space"></span>
+		<span class="fl space"><%= button_to "Comment it", new_comment_path(article) , :class => "btn btn-primary btn-xs", :method => :get  %></span>
+		<%if @author.id == @user.id %>
+			<span class="fl space"><%= button_to "Edit", edit_article_path(article) , :class => "btn btn-primary btn-xs", :method => :get  %></span>		
+			<span class="fl space"><%= button_to "Remove", delete_article_path(article) , :class => "btn btn-primary btn-xs", :method => :get  %></span>		
+		<%else%>
+		<% 
+			@relations = Friendship.where( "friendA = ? OR  friendB = ?" , session[:user_id], false) 
+			changeText(session, @author, @relations ) 
+		%>
+		  <div class="fl makeFriendship space" >
+	      <%= button_to @makebtn, make_friendship_path( @author.id) , 
+	            :class => "btn btn-warning btn-xs ", 
+	            :disabled => @makedis,
+	            :method => :get  %></div>    
+	      <div class="fl blockThisPeople space" >
+	      <%= button_to @delbtn, delete_friendship_path(@author.id) , 
+	            :class => "btn btn-info btn-xs",
+	            :disabled => @deldis,
+	            :method => :get  %></div>    
+	      <div class="fl blockThisPeople space" >
+	      <%= button_to @blkbtn, block_friendship_path(@author.id) , 
+	            :class => "btn btn-danger btn-xs",
+	            :disabled => @blkdis,
+	            :method => :get  %></div>     
+		<%end%>
+		<br>
+		<br>
+	</div>
+	
+	<p>
+		<%= article.text %>
+
+	</p>
+</div>

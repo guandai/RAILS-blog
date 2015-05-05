@@ -1,0 +1,20 @@
+
+<div id="user_<%=friendship.id%>" class="friendship">
+  <div class="friendship-info">
+    <br>
+    <h3><%= friendship.title %></h3>
+    
+    <span class="fl" ><%=  " Author: " + @user.first_name + " " + @user.last_name  %> </span>
+    <span class="space"></span>
+    <span class="fl space"><%= button_to "Edit", edit_friendship_path(friendship) , :class => "btn btn-primary btn-xs", :method => :get  %></span>    
+    <span class="fl space"><%= button_to "Remove", delete_friendship_path(friendship) , :class => "btn btn-primary btn-xs", :method => :get  %></span>    
+    <br>
+    <br>
+  </div>
+  
+  <p>
+    <span><%= friendship.status %></span>
+    <span><%= friendship.accepted %></span>
+  </p>
+</div>
+
