@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
     puts session[:user_id]
   end
 
+
   def index
     user = @user=User.find(current_user)
     @articles = current_user.articles.paginate(:page => params[:page])
@@ -30,7 +31,6 @@ class ArticlesController < ApplicationController
       @articles=@articles.concat( ua )
       end
     end
-  
 
     #@articles = @articles.contact()
     #puts "!! ArticlesController index"+ current_user.articles.length.to_s + " " + @articles.empty?.to_s
@@ -70,11 +70,15 @@ class ArticlesController < ApplicationController
     redirect_to  :action => 'index'
   end
 
+  def new_article
+    params.require(:article).permit(:text, :title , :user_id )
+  end
+
  def create
   #params[:article]
   #params[:article][:user] = Integer(params[:article][:user])
 
-  @article = Article.new(params[:article])
+  @article = Article.new(new_article)
   @article.user_id= current_user.id
   @article.save
   redirect_to  :action => 'index'

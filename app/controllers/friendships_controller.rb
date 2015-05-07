@@ -34,15 +34,7 @@ class FriendshipsController < ApplicationController
     if Friendship.where(friendB:  @a)[0]
       @relations=@relations.concat( Friendship.where(friendB:  @a))
     end
-   # p @relations
-    #@relations = @relations.concat()
-    # sent to view
-    
-
-    #p "FriendshipsController new " + @relations.length.to_s
-    # @relations.each do |a|
-    #   p a
-    # end
+  
 
     @users = User.all
     #p "FriendshipsController @users length: " + @users.length.to_s
@@ -82,12 +74,11 @@ class FriendshipsController < ApplicationController
     
     if exist == 0  
       @friendship = Friendship.new()
-      p "create a new friendship"
       @friendship.friendA=@a # FriendA is current user
       @friendship.friendB=@b # this is list friend ,  means FriendB
       @friendship.accepted = false
       @friendship.status = 1   
-      p @friendship
+      @friendship.permit(:friendA,:friendB,:accepted,:status)
       @friendship.save
       # 0 => no relation   , 1 waiting answer , 2 bidirection , 4 block  , 
     else
@@ -98,20 +89,20 @@ class FriendshipsController < ApplicationController
     
   end
 
-  # def update
-  #   @friendship = Friendship.find(params[:id])
+  def update
+    @friendship = Friendship.find(params[:id])
 
-  #   respond_to do |format|
-  #     if @friendship.update_attributes(params[:friendship])
-  #       format.html { redirect_to @friendship, notice: 'Friendship was successfully updated.' }
-  #       format.json { head :no_content }
-  #     else
-  #       format.html { render action: "edit" }
-  #       format.json { render json: @friendship.errors, status: :unprocessable_entity }
-  #     end
-  #   end
+    respond_to do |format|
+      if @friendship.update_attributes(params[:friendship])
+        format.html { redirect_to @friendship, notice: 'Friendship was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @friendship.errors, status: :unprocessable_entity }
+      end
+    end
 
-  # end
+  end
   
   def block
       

@@ -40,15 +40,21 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.json
+  def new_person
+    params.require(:user).permit(:first_name, :last_name, :email, :name, :password)
+  end
+
   def create
-    @user = User.new(params[:user])
+    p ">>>>>> create"
+    @user = User.new(new_person)
 
     respond_to do |format|
       if @user.save
-        
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        p ">>>>>> user created"
+        format.html { redirect_to  "/login", notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
+        p ">>>>>> user go to new"
         format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -58,13 +64,17 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
+    
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+      if @user.update_attributes(new_person)
+        p "updated!"
+        format.html { redirect_to "/login", notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
+        p "updated fail!"
+        p @user.update_attributes(new_person)
         format.html { render action: "edit" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end

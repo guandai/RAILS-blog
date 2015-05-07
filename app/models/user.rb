@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
-  attr_accessible :first_name, :last_name, :email , :name ,  :password
+  #accepts_attributes :first_name, :last_name, :email , :name ,  :password
 
   has_many :articles, dependent: :destroy
 

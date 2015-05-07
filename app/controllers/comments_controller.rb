@@ -37,10 +37,16 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
 
+
+  def new_comment
+  p "new_comment in CommentsController"
+    p params
+    params.require(:comment).permit(:article_id, :text, :user_id) 
+  end
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(params[:comment])
+    @comment = Comment.new(new_comment)
 
     respond_to do |format|
       if @comment.save
@@ -59,10 +65,12 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
 
     respond_to do |format|
-      if @comment.update_attributes(params[:comment])
+      if @comment.update_attributes(new_comment)
+        p "comments updated"
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
         format.json { head :no_content }
       else
+        p "comments updated fail"
         format.html { render action: "edit" }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end

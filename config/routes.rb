@@ -1,18 +1,12 @@
 Blog::Application.routes.draw do
   
   resources :comments do
-   member do
-        get "edit", to: "comments#edit", as: "edit"
-        get "delete", to: "comments#destroy", as: "delete"
-        post "update",to: "comments#update", as: "update"
-      end
+    member do
+      get "edit", to: "comments#edit", as: "edit"
+      get "delete", to: "comments#destroy", as: "delete"
+      post "update",to: "comments#update", as: "update"
     end
-
-  get "sessions/new"
-  get "sessions/create"
-  get "sessions/destroy"
-  get "welcome/index"
-
+  end
 
   resources :users do
     member do
@@ -29,6 +23,7 @@ Blog::Application.routes.draw do
       post "update"
     end
   end
+
   resources :friendships do
     member do
       get "block", to: "friendships#block", as: "block"
@@ -40,22 +35,19 @@ Blog::Application.routes.draw do
     end
   end
 
- # post "articles/new" , to: "articles#create"
-  
-  get 'user', to: 'users#show' , id: 1
   
   resources :sessions, only: [:new, :create, :destroy]
+  
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'page/index'
   root to: 'page#index'
 
-  #root to: "welcome#index"
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
-  
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
@@ -81,7 +73,7 @@ Blog::Application.routes.draw do
   #   end
 
   # Sample resource route with sub-resources:
-  #   resources :products do< +
+  #   resources :products do
   #     resources :comments, :sales
   #     resource :seller
   #   end

@@ -51,7 +51,7 @@ module Blog
     # This will create an empty whitelist of attributes available for mass-assignment for all models
     # in your app. As such, your models will need to explicitly whitelist or blacklist accessible
     # parameters by using an attr_accessible or attr_protected declaration.
-    config.active_record.whitelist_attributes = true
+    #config.active_record.whitelist_attributes = true
 
     # Enable the asset pipeline
     config.assets.enabled = true
@@ -60,5 +60,7 @@ module Blog
     config.assets.version = '1.0'
 
     config.action_controller.include_all_helpers = true
+
+     config.secret_key_base = '9daf0971f63dcdca85887ade70965dc2e8656fc7fc822046e86871141174052d41b16724c310eb33ad81f6ac1a6187974ab490dfd763f316fc5152d55a060d74'
   end
 end
