@@ -29,7 +29,7 @@ RSpec.describe CommentsController, type: :controller do
   }
 
   let(:invalid_attributes) {
-    new_comment
+    new_inv_comment
     #skip("Add a hash of attributes invalid for your model")
   }
 
@@ -42,8 +42,8 @@ RSpec.describe CommentsController, type: :controller do
 
   describe "GET #index" do
     it "assigns all comments as @comments" do
-      #comment = Comment.create! valid_attributes
-      comment = Comment.create! 
+      comment = Comment.create! valid_attributes
+      #comment = Comment.create! 
       
       get :index, { :article => new_article  } , valid_session
       expect(assigns(:comments)).to eq([comment])
@@ -53,7 +53,7 @@ RSpec.describe CommentsController, type: :controller do
   describe "GET #show" do
     it "assigns the requested comment as @comment" do
       comment = Comment.create! valid_attributes
-      get :show, {:id => comment.to_param}, valid_session
+      get :show, { :id => comment[:id] }, valid_session
       expect(assigns(:comment)).to eq(comment)
     end
   end
@@ -109,7 +109,8 @@ RSpec.describe CommentsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+       # skip("Add a hash of attributes valid for your model")
+         new_comment
       }
 
       it "updates the requested comment" do

@@ -6,6 +6,9 @@ Blog::Application.routes.draw do
       get "delete", to: "comments#destroy", as: "delete"
       post "update",to: "comments#update", as: "update"
     end
+    collection do
+      get "show", to: "comments#show", as: "show"
+    end
   end
 
   resources :users do

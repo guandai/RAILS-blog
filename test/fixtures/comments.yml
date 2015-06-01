@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
+
 one:{
-  # "user_id": 1,
-  # "text": "MyText1",
-  # "article_id": 298486374
+	id:1,
+   user_id: 1,
+   text: "MyText1",
+   article_id: 298486374
 }
 
 two:{

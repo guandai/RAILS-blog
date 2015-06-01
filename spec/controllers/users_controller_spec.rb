@@ -24,11 +24,13 @@ RSpec.describe UsersController, type: :controller do
   # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    #skip("Add a hash of attributes valid for your model")
+    new_user
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    new_inv_user
+    #skip("Add a hash of attributes invalid for your model")
   }
 
   # This should return the minimal set of values that should be in the session
@@ -83,7 +85,8 @@ RSpec.describe UsersController, type: :controller do
 
       it "redirects to the created user" do
         post :create, {:user => valid_attributes}, valid_session
-        expect(response).to redirect_to(User.last)
+        #expect(response).to redirect_to(User.last)
+        expect(response).to redirect_to("/login")
       end
     end
 
@@ -122,7 +125,8 @@ RSpec.describe UsersController, type: :controller do
       it "redirects to the user" do
         user = User.create! valid_attributes
         put :update, {:id => user.to_param, :user => valid_attributes}, valid_session
-        expect(response).to redirect_to(user)
+        #expect(response).to redirect_to(user)
+        expect(response).to redirect_to("/login")
       end
     end
 

@@ -53,22 +53,46 @@ end
 
 def new_user
     @user = Hash.new
-    @user[:email] = Random.new().rand(10000).to_s  +  "@user.com" 
-    @user[:last_name] = Random.new().rand(10000).to_s  
+    @user[:email] = Random.new().rand(10000).to_s + "@user.com" 
+    @user[:id] = Random.new().rand(10000)
+    @user[:name] = "1111"
+    @user[:last_name] = "1111"
+    @user[:first_name] = "1111" 
+    @user[:password_digest] = "1111"
+    
+    return @user
+end
+
+
+def new_inv_user
+    @user = Hash.new
+    @user[:email] = Random.new().rand(10000).to_s  +  "@user.com"
+    @user[:last_name] = ""
     @user[:first_name] = Random.new().rand(10000).to_s  
     @user[:password_digest] = Random.new().rand(10000).to_s  
-    @user = User.new(@user)
-    
-    return @user.attributes
+
+    return @user
 end
+
 
 
 def new_comment
     @comment = Hash.new
+    @comment[:id] = Random.new().rand(10000).to_s  
     @comment[:user_id] = 1
     @comment[:text] = "sdasdasdas" + Random.new().rand(10000).to_s  
     @comment[:article_id] = 1
-    #@comment[:article] = new_article
+    p "!!!!"
+    p @comment
+    return @comment
+end
+
+
+def new_inv_comment
+    @comment = Hash.new
+    @comment[:user_id] = 1
+    @comment[:text] = ""
+    @comment[:article_id] = 0
     return @comment
 end
 
@@ -78,7 +102,6 @@ def new_article
     @article[:title] = "title" + Random.new().rand(10000).to_s  
     @article[:text] = "sdasdasdas"
     @article[:user_id] = 1
-    
     return @article
 end
 
@@ -86,8 +109,6 @@ end
 def new_session
     @session = {}
     @session[:user_id] = 1
-
-    
     return @session
 end
 

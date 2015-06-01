@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def new_person
-    params.require(:user).permit(:first_name, :last_name, :email, :name, :password)
+    params.require(:user).permit(:first_name, :last_name, :email, :name, :password_digest )
   end
 
   def create
@@ -54,7 +54,8 @@ class UsersController < ApplicationController
         format.html { redirect_to  "/login", notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
-        p ">>>>>> user go to new"
+        p ">>>>>> user created fail"
+        p @user.errors
         format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end

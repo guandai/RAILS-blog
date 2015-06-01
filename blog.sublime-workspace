@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"co",
+				"companyname"
+			],
+			[
 				"br",
 				"br"
 			]
@@ -11,11 +15,32 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/D/Dropbox/Tempwork/wordpress.template.xml",
+			"settings":
+			{
+				"buffer_size": 2785,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/Dropbox/Tempwork/xxx.xml",
+			"settings":
+			{
+				"buffer_size": 48733,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
 	"command_palette":
 	{
 		"height": 104.0,
+		"last_filter": "install",
 		"selected_items":
 		[
 			[
@@ -70,11 +95,32 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/D/Dropbox/Tempwork/blog",
+		"/D/Dropbox/Tempwork/blog/app",
+		"/D/Dropbox/Tempwork/blog/app/assets",
+		"/D/Dropbox/Tempwork/blog/app/assets/javascripts"
+	],
 	"file_history":
 	[
-		"/Users/zhengdai/Dropbox (Personal)/Tempwork/blog/app/assets/stylesheets/application.css.scss",
-		"/Users/zhengdai/Dropbox (Personal)/Tempwork/blog/Gemfile",
-		"/Users/zhengdai/Dropbox (Personal)/Tempwork/blog/app/assets/javascripts/smt.js",
+		"/D/Dropbox/Tempwork/xxx.xml",
+		"/D/Downloads/all.html",
+		"/D/Downloads/config.cfg",
+		"/D/Downloads/xxx.xml",
+		"/D/Downloads/xxx.html",
+		"/D/share.txt",
+		"/C/Users/guand_000/AppData/Local/Temp/mcplugin/channelpcsdk/20150510190743_6556.xlog",
+		"/C/Users/guand_000/AppData/Local/Temp/MpCmdRun.log",
+		"/D/Downloads/all member",
+		"/D/Dropbox/Tempwork/blog/config/environments/development.rb",
+		"/D/Dropbox/Tempwork/blog/config/database.yml",
+		"/D/Dropbox/Tempwork/blog/Gemfile",
+		"/D/Dropbox/Tempwork/blog/app/assets/javascripts/smt.js",
+		"/D/Dropbox/Tempwork/blog/app/assets/stylesheets/application.css.scss",
+		"/C/Program",
+		"/C/Program Files/PostgreSQL/9.4/data/Files/PostgreSQL/9.4/data/pg_hba.conf",
+		"/C/Program Files/PostgreSQL/9.4/data/pg_hba.conf",
 		"/C/Users/guand_000/AppData/Local/Temp/Rar$DIa0.659/README.md",
 		"/D/Dropbox/Tempwork/blog/app/assets/stylesheets/application.css",
 		"/D/Dropbox/greensoft/note/st3/Data/Packages/User/less2css.sublime-settings",
@@ -89,7 +135,6 @@
 		"/D/Dropbox/Tempwork/mbapp/Gemfile",
 		"/C/Users/guand_000/.gem/ruby/extensions/x86_64-cygwin/json-1.8.2/gem_make.out",
 		"/C/Users/guand_000/.bash_profile",
-		"/D/Dropbox/Tempwork/blog/Gemfile",
 		"/D/Dropbox/Tempwork/aaa.less",
 		"/C/apps/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/libv8-3.16.14.8.rc1/ext/libv8/builder.rb",
 		"/D/Dropbox/greensoft/note/st3/sn.txt",
@@ -186,30 +231,18 @@
 		"/C/Users/guand_000/.android/studio/installer/firstrun.data",
 		"/C/Program Files/Android/Android Studio/NOTICE.txt",
 		"/C/Program Files/Android/Android Studio/bin/studio.exe.vmoptions",
-		"/C/Program Files/Android/Android Studio/bin/appletviewer.policy",
-		"/C/Program Files/Android/Android Studio/bin/studio64.exe.vmoptions",
-		"/C/Program Files/Android/Android Studio/bin/idea.properties",
-		"/D/software/Microsoft/common/home本地用户管理/user and group 管理.txt",
-		"/D/Downloads/xp68-win-mp280-5_56a-ea24/xp68-win-mp280-5_56a-ea24/README/3/readme_simplified_chinese_xps.txt",
-		"/D/Downloads/xp68-win-mp280-5_56a-ea24/xp68-win-mp280-5_56a-ea24/README/6/readme_english_xps.txt",
-		"/D/Dropbox/greensoft/Reg/ccleaner/License.txt",
-		"/D/Downloads/xp68-win-mp280-5_56a-ea24/xp68-win-mp280-5_56a-ea24/README/6/readme_simplified_chinese_xps.txt",
-		"/D/Dropbox/greensoft/note/st3/Data/Installed Packages/sublime-gbk-master/README.md",
-		"/C/Windows/Logs/CBS/CBS.log",
-		"/C/Windows/Temp/backup.txt",
-		"/C/Windows/Temp/WER1C37.tmp.reg.txt",
-		"//ACER/Photo/design/joke/aawww.txt",
-		"/C/RailsInstaller/DevKit/blog/app/assets/javascripts/application.js"
+		"/C/Program Files/Android/Android Studio/bin/appletviewer.policy"
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
 		"height": 90.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -217,6 +250,89 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"(<img>.*</img>)[\\n\\t]*<url>(.*)</url>[\\n\\t]*<companyname>(.*)</companyname>[\\n\\t]*<content:encoded><!\\[CDATA\\[",
+			"(<img>.*</img>)[\\n\\t]*<url>(.*)</url>[\\n\\t]*<companyname>(.*)</companyname>",
+			"(<img>.*</img>)[\\n\\t]*<url>(.*)</url>)[\\n\\t]*<companyname>(.*)</companyname>",
+			"(<img>.*</img>)[\\n\\t]*<url>(.*)</url>\n			<companyname>(.*)</companyname>",
+			"</url>[\\n\\t]*<companyname>",
+			"<id/>",
+			"</url>",
+			"content>",
+			"<![CDATA",
+			"]]></item>",
+			"</companyname><![CDATA",
+			"</item>",
+			"</companyname>",
+			"<a href=\"(.*)\">(.*)</a>",
+			"\\n<",
+			"><",
+			"<url>(.*)\">(.*)</url>",
+			"<url>http://www.awapatent.com\">Awapatent</url>",
+			"<url>(.*)\">(.*)</url>",
+			"<a href=\".*\">[\\n\\t]*<img",
+			"<a href=\"http://nccchamber.com/wp-content/uploads/2012/11/logo-NSG.jpg\">[\\n\\t]*<img",
+			"<img>(.*)</a>",
+			"<a href=\"(.*)\">[\\n\\t]*<.*>(Post Nord)</.*>[\\n\\t]*</a>",
+			"<.?tbody>",
+			"<.?table>",
+			"<a href=\"(.*)\">(.*)</url>",
+			"</img>[\\n\\t]*</a>",
+			"<a href=\"http://nccchamber.com/wp-content/uploads/2012/11/52-Huawei.jpg\">[\\n\\t]*<img",
+			"<a href=\".*\">HUAWEI</url>",
+			"<companyname>[\\n\\t]*?<a",
+			"<companyname>[\\n\\t]*?<a>",
+			"<companyname>[\\n\\t]*?<img>",
+			"<.?td>",
+			"title",
+			" </",
+			"</url></title>",
+			"(<title>.*</url>)",
+			"\">>></url>",
+			"(<url>.*/\">)",
+			"<url>http://www.gormlarsenzornig.com/\">",
+			"<url>.*/\">",
+			"<url>http://www.gormlarsenzornig.com/\">",
+			"(<url>.*/\">)",
+			"<url>.*/\">",
+			"University",
+			"companies",
+			" \n",
+			">\n",
+			"com",
+			"<url>http://www.gormlarsenzornig.com/\">",
+			"<url>.*\">",
+			"</h2>",
+			"<h2>",
+			"</a>\n				</h2>",
+			"<h2>\n				<a href=\"",
+			"\" alt=\".*\"\\/>",
+			"\" alt=\"18-INVACTOR\" width=\"202\" height=\"70\"/>",
+			"<img src=\"",
+			"</tr>",
+			"<tr>",
+			"	</tbody>\n</table>",
+			"<table>\n	<tbody>",
+			" ",
+			"<wbr\\/?>",
+			"wbr",
+			"<a id=\"postnord\"/>",
+			"<a id=\".*?\"/>",
+			" style=\".*?\"",
+			" class=\".*?\"",
+			"ø",
+			"€",
+			"__oe__",
+			"ø",
+			"æ",
+			"å",
+			"__",
+			"ø",
+			"æ",
+			"ø",
+			"å",
+			"’",
+			"error",
+			"sql",
 			"replaceall",
 			"ruby",
 			"rubyrac",
@@ -261,22 +377,7 @@
 			"7643",
 			"7543",
 			"getUserInfo",
-			"     \n",
-			"圳网络警察报警平台深圳网络警",
-			"\n深圳网络警察报警平台深圳网络警",
-			"chain",
-			"log",
-			"D:\\Dropbox\\",
-			"D:\\Dropbox\\AppData\\Local\\Android\\Sdk",
-			"drop",
-			"search\\data",
-			"search",
-			"Win32API",
-			"require 'dl'",
-			" require 'dl'",
-			"RUBY_VERSIO",
-			"if RUBY_VERSIO",
-			"if RUBY_VERSION < '1.9.1'"
+			"     \n"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -284,6 +385,67 @@
 		"regex": true,
 		"replace_history":
 		[
+			"$1\\n\\t\\t\\t<url>$2</url>\\n\\t\\t\\t<companyname>$3</companyname>\\n\\t\\t\\t<content:encoded><!\\[CDATA\\[ <a href=\"$2\">$1<br>$3</a><br>",
+			"$1\\n\\t\\t\\t<url>$2</url>\\n\\t\\t\\t<companyname>$3</companyname>\\n\\t\\t\\t<content:encoded><!\\[CDATA\\[",
+			"$1\\n\\t\\t\\t<url>$2</url>\\n\\t\\t\\t<companyname>$3</companyname>",
+			"($1)\\n\\t\\t\\t<url>($2)</url>\\n\\t\\t\\t<companyname>($3)</companyname>",
+			"</url>\\n\\t\\t\\t<companyname>",
+			"</url><companyname>",
+			"",
+			"</url><id></id>",
+			"content:encoded>",
+			"<![CDATA[",
+			"]]></content></item>",
+			"</companyname><content><![CDATA",
+			"]]></item>",
+			"</companyname><![CDATA",
+			"<url>$1</url>\\n\\t\\t\\t\\t<companyname>$2</companyname>",
+			"<url>$1</url>\\n\\t\\t\\t<companyname>$2</companyname>",
+			"\\n\\t\\t\\t<",
+			">\\n<",
+			"<url>$1</url>\\n\\t\\t\\t\\t<companyname>$2</companyname>",
+			"<img>$1</url>\\n\\t\\t\\t\\t<companyname>$2</companyname>",
+			"<img",
+			"<img>$1</img>",
+			"<url>$1</url>\\n\\t\\t\\t\\t<companyname>$2</companyname>",
+			"",
+			"<url>$1</url>\\n\\t\\t\\t\\t<companyname>$2</companyname>",
+			"</a>",
+			"<img",
+			"<a",
+			"<img>",
+			"",
+			"companyname",
+			"</",
+			"</title>",
+			"$1</title>",
+			"</url>",
+			"$1>></url>\\n\\t\\t\\t\\t<title>",
+			"/1$1 ss",
+			"<url>.*/\">/1$1 ss",
+			"/1 ss",
+			"$1 ss",
+			"<url>.*/\">/1$1 ss",
+			"<url>.*/\">/1 ss",
+			"<url>.*/\">$1 ss",
+			"$1 ss",
+			"</title>",
+			"<title>",
+			"</url>",
+			"<url>",
+			"</img>",
+			"<img>",
+			"</item>",
+			"<item>",
+			" ",
+			"",
+			"euro",
+			"ø",
+			"__oe__",
+			"__ae__",
+			"__oe__",
+			"__aa__",
+			"'",
 			";",
 			"",
 			" ",
@@ -298,14 +460,75 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/D/Dropbox/Tempwork/wordpress.template.xml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2785,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1604,
+								1604
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 168.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/D/Dropbox/Tempwork/xxx.xml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 48733,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4595,
+								4745
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 571.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 27.0
+		"height": 34.0
 	},
 	"input":
 	{
@@ -342,15 +565,17 @@
 	{
 		"height": 0.0
 	},
+	"pinned_build_system": "Packages/SASS Build/SASS - Compressed.sublime-build",
 	"project": "blog.sublime-project",
 	"replace":
 	{
-		"height": 50.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
@@ -359,6 +584,7 @@
 	"select_project":
 	{
 		"height": 500.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
@@ -367,11 +593,13 @@
 	"select_symbol":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
 		"width": 0.0
 	},
+	"selected_group": 0,
 	"settings":
 	{
 	},
@@ -379,7 +607,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 322.0,
+	"side_bar_width": 187.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

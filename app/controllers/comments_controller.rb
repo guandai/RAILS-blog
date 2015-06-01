@@ -39,8 +39,6 @@ class CommentsController < ApplicationController
 
 
   def new_comment
-  p "new_comment in CommentsController"
-    p params
     params.require(:comment).permit(:article_id, :text, :user_id) 
   end
   # POST /comments
