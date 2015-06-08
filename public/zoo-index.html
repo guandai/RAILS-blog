@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Universal Ruby Web Application Template powered by Helicon Zoo</title>
+  <style type="text/css">
+    body {
+      font-family: Sans-Serif;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    h1 {
+      color: #f42;
+      text-align: center;
+      letter-spacing: -1px;
+      line-height: 40px;
+    }
+
+    h2 {
+      color: #666;
+      margin-top: 1em;
+    }
+
+    pre {
+      padding: .5em;
+      background-color: #eee;
+      word-break: break-all;
+      white-space: pre-wrap;
+    }
+
+    code {
+      color: #008;
+      font-family: Consolas, monospace;
+    }
+
+    #container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    #footer {
+      clear: both;
+      margin: 2em 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div id="container">
+  <div id="header">
+    <h1>Welcome to&nbsp;universal Ruby template powered by&nbsp;Helicon&nbsp;Zoo</h1>
+  </div>
+
+  <div id="content">
+    <p><strong>This page is located at <a href="/public/zoo-index.html">/public/zoo-index.html</a></strong></p>
+
+    <p><a href="console" target="_blank">Click on this link to open web console</a>. Please use this console to run all
+      Ruby commands on your application as these commands will be applied to this application environment. Helicon Zoo
+      is designed to run multiple environments on a single server and all application dependencies are installed into
+      the application's web site directory. If you use the provided web console to install gems they will be installed
+      into GEM_HOME folder of this web site, so all dependencies will ship with your application if you decide to move
+      or deploy it. If you use Windows console to run Ruby commands you may be actually calling quite different instance
+      or version of Ruby (depends on your system set up) and installing gems in locations not related to this
+      application at all.</p>
+
+    <p>The web console will only work for
+    local or authenticated requests and external access is restricted for security reasons. You can enable remote access to web console by setting up any authentication method for <strong>/console/</strong> directory of the web site.</p>
+
+    <p>This template is configured by default to run Ruby 1.9 Rack applications using FastCGI protocol. Please review
+      <strong>web.config</strong> file for more details. There are commented out sections for Ruby 1.8 Rack over FastCGI
+      and Ruby 1.9 Rack over HTTP.</p>
+
+    <p>The <em>deploy_sample.rb</em> script in the root folder is a sample deploy script. Rename this file to <em>deploy.rb</em>
+      and Helicon Zoo will execute it as a deploy task upon next request to the application. After execution is
+      completed Helicon Zoo will rename this file to <em>deploy_done.rb</em> to prevent further execution. Rename it to
+      <em>deploy.rb</em> if you need to start deployment process again. This script is useful when you deploy
+      application to production server running Helicon Zoo and need to execute database migrations, gem updates, etc.
+      You can read more about deployment scripts in <a href="http://www.helicontech.com/zoo/docs/deployment.htm"
+                                                       target="_blank">Helicon Zoo documentation</a>.</p>
+
+    <p>Below please find step-by-step instructions to run some common Ruby configurations:</p>
+
+
+    <ul>
+      <li><a href="#Generic">Generic Rack application</a></li>
+      <li><a href="#Rails">Ruby on Rails</a></li>
+      <li><a href="#RailsThin">Ruby 1.9 Rack over HTTP with Thin</a></li>
+      <li><a href="#Sinatra">Sinatra</a></li>
+      <li><a href="#Goliath">Goliath</a></li>
+    </ul>
+
+    <a name="Generic"></a>
+    <h2>Generic Rack application</h2>
+    <p>This template project is already configured to run Rack applications with Ruby 1.9 engine. The URL Rewrite rule set to rewrite index page requests to show this welcome page, but once<strong> config.ru</strong> file is present in the root the Rack application will start.</p>
+    <p>If you have existing Ruby Rack application simply put it's files into this web site folder. Please do not remove
+      or overwrite <strong>web.config</strong> file provided with this template. Helicon Zoo application will not work without
+      proper configuration in web.config file.</p>
+
+
+
+
+    <a name="Rails"></a>
+    <h2>Ruby on Rails</h2>
+    <ol>
+      <li>Open <a href="console" target="_blank">web console</a> and type:
+        <pre><code>gem install rails</code></pre>
+
+        <p><strong>Wraning</strong>: this operation takes looooong time, please be patient.
+          This will install latest version of Rails into GEM_HOME. To install other version of Rails you can use:</p>
+
+        <pre><code>gem install rails --version 4.0.0.beta1</code></pre>
+
+        <pre><code>gem install rails --version 3.2.13</code></pre>
+
+        <pre><code>gem install rails --version 2.3.11</code></pre>
+      </li>
+      <li>Run <code>rails</code> command to&nbsp;generate application files:
+        <ul>
+          <li> For Rails&nbsp;3:
+            <pre><code>rails new .</code></pre>
+          </li>
+          <li> For Rails&nbsp;2:
+            <pre><code>rails .</code></pre>
+          </li>
+          <li> If&nbsp;you have multiple Rails versions you can specify the one you want to&nbsp;use as&nbsp;follows:
+            <pre><code>rails _3.1.1_ new .</code></pre>
+            <pre><code>rails _2.3.11_ .</code></pre>
+          </li>
+        </ul>
+      </li>
+    </ol>
+    <p>Some useful commands:</p>
+    <ul>
+      <li>
+        <pre><code>gem list</code></pre>
+      </li>
+      <li>
+        <pre><code>bundle install</code></pre>
+      </li>
+      <li>
+        <pre><code>gem uninstall rails</code></pre>
+      </li>
+    </ul>
+
+
+
+
+    <a name="RailsThin"></a>
+    <h2>Ruby 1.9 Rack over HTTP with Thin</h2>
+
+    <p><strong>Thin</strong> is an asynchronnous Rack to HTTP Ruby web server based on EventMachine. Use this
+      configuration if your application needs long polling or comet support or other asynchronous operations.</p>
+    <ol>
+      <li>Open <a href="console" target="_blank">web console</a> and type:
+        <pre><code>gem install thin</code></pre>
+      </li>
+      <li>Edit root web.config file as follows:
+        <ul>
+          <li>In the <strong>&lt;handlers&gt;</strong> section comment out two lines that follows
+            <pre><code>&lt;!-- Ruby 1.9 over FastCGI --&gt;</code></pre>
+          </li>
+          <li>Uncomment two lines that follows
+            <pre><code>&lt;!-- Ruby 1.9 over HTTP, using Thin as a back-end application server --&gt;</code></pre>
+          </li>
+          <li>In the <strong>&lt;environmentVariables&gt;</strong> section uncomment line
+            <pre><code>&lt;!-- Use this APP_WORKER with HTTP Ruby engine and Thin. Thin need to be installed.
+&lt;add name=&quot;APP_WORKER&quot; value=&quot;GEM_HOME\bin\thin start&quot; /&gt;
+--&gt;</code></pre>
+          </li>
+        </ul>
+      </li>
+      <li>Create <em>config.ru</em> file and put your Rack application into the web site folder.</li>
+    </ol>
+
+
+
+
+
+    <a name="Sinatra"></a>
+    <h2>Sinatra</h2>
+    <ol>
+      <li>Open <a href="console" target="_blank">web console</a> and type:
+        <pre><code>gem install sinatra</code></pre>
+      </li>
+      <li>Create config.ru file with the following content:
+        <pre><code>require &#39;./app&#39;
+run Sinatra::Application</code></pre>
+      </li>
+      <li>Create app.rb file with the following content:
+        <pre><code>require 'sinatra'
+get '/' do
+    &quot;&lt;h1&gt;Hello from Sinatra!&lt;/h1&gt;&quot;
+end</code></pre>
+      </li>
+    </ol>
+
+
+
+    <a name="Goliath"></a>
+    <h2>Goliath</h2>
+    <ol>
+      <li>Open <a href="console" target="_blank">web console</a> and type:
+        <pre><code>gem install goliath</code></pre>
+      </li>
+      <li>
+        Uncomment line with <code>APP_WORKER</code> in web.config:
+        <pre><code>&lt;add name=&quot;APP_WORKER&quot; value=&quot;%APPL_PHYSICAL_SHORT_PATH%\app.rb&quot; /&gt;</code></pre>
+      </li>
+      <li>
+        Uncomment handler mappings for http applications over Thin in web.config:
+        <pre><code>&lt;!-- Ruby 1.9 over HTTP, using Thin or other back-end application server --&gt;
+&lt;add name=&quot;ruby.project#x86&quot; scriptProcessor=&quot;ruby.1.9.http&quot;
+      path=&quot;*&quot; verb=&quot;*&quot; modules=&quot;HeliconZoo_x86&quot;
+      preCondition=&quot;bitness32&quot; resourceType=&quot;Unspecified&quot; requireAccess=&quot;Script&quot; /&gt;
+&lt;add name=&quot;ruby.project#x64&quot; scriptProcessor=&quot;ruby.1.9.http&quot;
+      path=&quot;*&quot; verb=&quot;*&quot; modules=&quot;HeliconZoo_x64&quot;
+      preCondition=&quot;bitness64&quot; resourceType=&quot;Unspecified&quot; requireAccess=&quot;Script&quot; /&gt;
+</code></pre>
+      </li>
+      <li>Create config.ru file with the following content:
+        <pre><code>require &#39;./app&#39;</code></pre>
+      </li>
+      <li>Create app.rb file with the following content:
+        <pre><code>require 'goliath'
+
+class Hello &lt; Goliath::API
+  def response(env)
+    [200, {}, &quot;Hello World from Goliath&quot;]
+  end
+end</code></pre>
+      </li>
+    </ol>
+
+
+  </div>
+
+  <div id="footer">
+    <a href="http://www.helicontech.com/zoo/">Helicon&nbsp;Zoo</a>
+    &middot;
+    <a href="http://www.helicontech.com/articles/category/helicon-zoo/">Articles</a>&nbsp;
+    &middot;
+    <a href="http://www.helicontech.com/community/Helicon_Zoo-6.html">Community</a>
+    &middot;
+    <a href="http://support.helicontech.com/">Support</a>
+  </div>
+</div>
+</body>
+</html>
