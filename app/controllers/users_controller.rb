@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    p ">>>>>> create"
+    p ">>>>>> create  " + params[:password_digest].to_s
     @user = User.new(new_person)
 
     respond_to do |format|

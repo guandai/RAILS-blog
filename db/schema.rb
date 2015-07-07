@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150429224917) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "text"
@@ -24,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150429224917) do
     t.integer  "user_id"
   end
 
-  add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id"
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
